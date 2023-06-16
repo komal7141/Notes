@@ -17,7 +17,7 @@ exports.homepage=async(req,res)=>{
 
 exports.about=async(req,res)=>{
     const locals={
-        title:'About- nodejs notes',
+        title:'About-nodejs notes',
         description: 'Free Nodejs App'
     }
 
