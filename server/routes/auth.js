@@ -46,7 +46,7 @@ router.get('/auth/google',
 
 //retrieve user data
 
-router.get('/google/callback',
+router.get('/auth/google/callback',
   passport.authenticate('google',
     {
       failureRedirect: '/login-failure',
