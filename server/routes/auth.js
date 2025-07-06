@@ -8,6 +8,7 @@ const User = require('../models/User')
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  
   callbackURL: process.env.GOOGLE_CALLBACK_URL
 },
 
@@ -44,7 +45,7 @@ router.get('/auth/google',
 
 //retrieve user data
 
-router.get('/google/callback',
+router.get('/auth/google/callback',
   passport.authenticate('google',
     {
       failureRedirect: '/login-failure',
