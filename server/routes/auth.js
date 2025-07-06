@@ -34,7 +34,8 @@ passport.use(new GoogleStrategy({
         done(null,user);
       }
     } catch (error) {
-      console.log(error);
+       console.error('GoogleStrategy error:', error);
+  return done(error, null);
     }
   }
 ));
@@ -45,7 +46,7 @@ router.get('/auth/google',
 
 //retrieve user data
 
-router.get('/auth/google/callback',
+router.get('/google/callback',
   passport.authenticate('google',
     {
       failureRedirect: '/login-failure',
