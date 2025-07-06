@@ -13,7 +13,15 @@ const { Cookie } = require('express-session');
 
 
 const app=express();
-const port = 5000 || process.env.PORT;
+const port = process.env.PORT || 5000;
+
+const cors = require('cors');
+
+app.use(cors({
+    origin: 'https://notes-rlz8.onrender.com', // Replace with your actual frontend URL
+    credentials: true, // Required if you're using cookies or sessions
+}));
+
 
 
 
@@ -26,7 +34,7 @@ app.use(session({
 }));
 
 app.use(passport.initialize());
-//app.use(passport.session());
+app.use(passport.session());
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
